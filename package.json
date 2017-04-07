@@ -1,0 +1,35 @@
+{
+  "name": "scss-flexbox-grid",
+  "version": "1.0.0",
+  "description": "Flexbox grid written on SCSS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
+  },
+  "keywords": [
+    "grid",
+    "sass",
+    "scss",
+    "flexbox"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shulkin/scss-flexbox-grid.git"
+  },
+  "author": "Evgeny Shulkin <evgeny.shulkin@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Shulkin/scss-flexbox-grid/issues"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 10 versions"
+  ],
+  "homepage": "https://github.com/Shulkin/scss-flexbox-grid#readme",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
