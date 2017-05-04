@@ -4,9 +4,8 @@
   "description": "Flexbox grid written on SCSS",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build"
+    "build": "gulp sass"
   },
   "keywords": [
     "grid",

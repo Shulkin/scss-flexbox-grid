@@ -18,3 +18,11 @@ $ git clone https://github.com/Shulkin/scss-flexbox-grid.git
 $ cd scss-flexbox-grid
 $ npm install
 ```
+
+## Usage
+
+Build grid to **dist/flexy.css**:
+
+```bash
+$ npm run build
+```
