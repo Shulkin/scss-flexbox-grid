@@ -1,0 +1,38 @@
+.container {
+  // Set default width from variable
+  width: @container-width;
+  display: block; // reset the display
+  margin: auto; // align to the center
+
+  // Set direction for row and columns
+  .row {
+    flex-direction: row;
+    &.reverse { // reverse row
+      flex-direction: row-reverse;
+    }
+  }
+  .column {
+    flex-direction: column;
+    &.reverse { // reverse column
+      flex-direction: column-reverse;
+    }
+  }
+  .row,
+  .column {
+    // Include padding and border to elements width
+    box-sizing: border-box;
+    // Both row and column are flex container
+    display: flex;
+    /*
+      flex-shrink = 0, don't shrink!
+      flex-grow = 1, grow as much as needed
+      flex-basis auto, fills the space it has
+    */
+    flex: 0 1 auto;
+    // Wrap the elements so that it doesn't overflow the container
+    flex-wrap: wrap;
+    // Set gutters from variable
+    margin-right: @gutter;
+    margin-left: @gutter;
+  }
+}
