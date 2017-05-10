@@ -1,0 +1,12 @@
+// Use this mixin to add common properties to .col-$name-$count
+@mixin grid-col-common {
+  // Count padding and border as elements width
+  box-sizing: border-box;
+  // Columns always have the defined size
+  flex-grow: 0;
+  flex-shrink: 0;
+  // Keep flex-basis out of common!
+  // Padding is half the gutter
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
