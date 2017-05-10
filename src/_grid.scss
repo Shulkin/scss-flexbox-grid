@@ -1,6 +1,6 @@
 .container {
   // Set default width from variable
-  width: @container-width;
+  width: $container-width;
   display: block; // reset the display
   margin: auto; // align to the center
 
@@ -32,7 +32,7 @@
     // Wrap the elements so that it doesn't overflow the container
     flex-wrap: wrap;
     // Set gutters from variable
-    margin-right: @gutter;
-    margin-left: @gutter;
+    margin-right: $gutter;
+    margin-left: $gutter;
   }
 }

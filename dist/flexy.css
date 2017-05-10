@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  display: block;
+  margin: auto; }
+  .container .row {
+    flex-direction: row; }
+    .container .row.reverse {
+      flex-direction: row-reverse; }
+  .container .column {
+    flex-direction: column; }
+    .container .column.reverse {
+      flex-direction: column-reverse; }
+  .container .row,
+  .container .column {
+    box-sizing: border-box;
+    display: flex;
+    /*
+      flex-shrink = 0, don't shrink!
+      flex-grow = 1, grow as much as needed
+      flex-basis auto, fills the space it has
+    */
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    margin-left: 20px; }
