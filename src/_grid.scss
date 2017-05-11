@@ -1,6 +1,12 @@
 /* ===== FOR TEST ===== */
-* {
-  border: 1px solid red;
+body * {
+  // Add thin red border around every element
+  box-shadow:
+    1px 0 0 0 red,
+    0 1px 0 0 red,
+    1px 1px 0 0 red,   /* just to fix the corner */
+    1px 0 0 0 red inset,
+    0 1px 0 0 red inset;
 }
 ul {
   list-style-type: none;
