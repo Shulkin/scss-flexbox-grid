@@ -14,14 +14,14 @@
 @each $breakpoint in $breakpoints {
   $media: nth($breakpoint, 1); // xs, sm, etc.
   $size: nth($breakpoint, 2); // viewport width, pixel
-  @media only screen and (max-width: $size) {
+  @media only screen and (min-width: $size) {
     .col-#{$media} {
       @include grid-col-common;
       flex-basis: auto;
     }
-    @for $counter from 1 to $cols {
-      $width: ($counter / $cols ) * 100%;
-      .col-#{$media}-#{$count} {
+    @for $counter from 1 through  $cols {
+      $width: 100% / $cols * $counter;
+      .col-#{$media}-#{$counter} {
         @include grid-col-common;
         flex-basis: $width;
         max-width: $width;
