@@ -1,4 +1,4 @@
-// Use this mixin to add common properties to .col-$name-$count
+// Use this mixin to add common properties to col class
 @mixin grid-col-common {
   // Count padding and border as elements width
   box-sizing: border-box;
@@ -9,4 +9,23 @@
   // Padding is half the gutter
   padding-right: $gutter / 2;
   padding-left: $gutter / 2;
+}
+// Loop through all breakpoints and create col classes
+@each $breakpoint in $breakpoints {
+  $media: nth($breakpoint, 1); // xs, sm, etc.
+  $size: nth($breakpoint, 2); // viewport width, pixel
+  @media only screen and (max-width: $size) {
+    .col-#{$media} {
+      @include grid-col-common;
+      flex-basis: auto;
+    }
+    @for $counter from 1 to $cols {
+      $width: ($counter / $cols ) * 100%;
+      .col-#{$media}-#{$count} {
+        @include grid-col-common;
+        flex-basis: $width;
+        max-width: $width;
+      }
+    }
+  }
 }
