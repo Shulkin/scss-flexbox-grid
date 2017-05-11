@@ -1,2 +1,5 @@
+$cols: 12; // columns per row
 $gutter: 20px;
 $container-width: 100%;
+// Define breakpoints
+$breakpoints: xs 576px, sm 767px, md 991, lg 1199px;
