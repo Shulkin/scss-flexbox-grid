@@ -14,18 +14,34 @@
 @each $breakpoint in $breakpoints {
   $media: nth($breakpoint, 1); // xs, sm, etc.
   $size: nth($breakpoint, 2); // viewport width, pixel
-  @media only screen and (min-width: $size) {
+  @media only screen and (max-width: $size) {
     .col-#{$media} {
       @include grid-col-common;
       flex-basis: auto;
     }
-    @for $counter from 1 through  $cols {
+    @for $counter from 1 through $cols {
       $width: 100% / $cols * $counter;
       .col-#{$media}-#{$counter} {
         @include grid-col-common;
         flex-basis: $width;
         max-width: $width;
       }
+    }
+  }
+}
+// Last breakpoint, extra large screen
+$media: xs; // more than 1200px
+@media only screen and (min-width: 1200px) {
+  .col-#{$media} {
+    @include grid-col-common;
+    flex-basis: auto;
+  }
+  @for $counter from 1 through $cols {
+    $width: 100% / $cols * $counter;
+    .col-#{$media}-#{$counter} {
+      @include grid-col-common;
+      flex-basis: $width;
+      max-width: $width;
     }
   }
 }
