@@ -12,19 +12,16 @@
 }
 // First breakpoint, xs (extra small screen); less than 768px
 $media: xs;
-$size: 768px;
-@media only screen and (max-width: 768px) {
-  .col-#{$media} {
+.col-#{$media} {
+  @include grid-col-common;
+  flex-basis: auto;
+}
+@for $counter from 1 through $cols {
+  $width: 100% / $cols * $counter;
+  .col-#{$media}-#{$counter} {
     @include grid-col-common;
-    flex-basis: auto;
-  }
-  @for $counter from 1 through $cols {
-    $width: 100% / $cols * $counter;
-    .col-#{$media}-#{$counter} {
-      @include grid-col-common;
-      flex-basis: $width;
-      max-width: $width;
-    }
+    flex-basis: $width;
+    max-width: $width;
   }
 }
 // Loop through all breakpoints and create col classes
@@ -46,21 +43,3 @@ $size: 768px;
     }
   }
 }
-/*
-// Last breakpoint, extra large screen
-$media: xs; // more than 1200px
-@media only screen and (min-width: 1200px) {
-  .col-#{$media} {
-    @include grid-col-common;
-    flex-basis: auto;
-  }
-  @for $counter from 1 through $cols {
-    $width: 100% / $cols * $counter;
-    .col-#{$media}-#{$counter} {
-      @include grid-col-common;
-      flex-basis: $width;
-      max-width: $width;
-    }
-  }
-}
-*/
