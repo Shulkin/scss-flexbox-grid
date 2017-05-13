@@ -10,11 +10,28 @@
   padding-right: $gutter / 2;
   padding-left: $gutter / 2;
 }
+// First breakpoint, xs (extra small screen); less than 768px
+$media: xs;
+$size: 768px;
+@media only screen and (max-width: 768px) {
+  .col-#{$media} {
+    @include grid-col-common;
+    flex-basis: auto;
+  }
+  @for $counter from 1 through $cols {
+    $width: 100% / $cols * $counter;
+    .col-#{$media}-#{$counter} {
+      @include grid-col-common;
+      flex-basis: $width;
+      max-width: $width;
+    }
+  }
+}
 // Loop through all breakpoints and create col classes
 @each $breakpoint in $breakpoints {
   $media: nth($breakpoint, 1); // xs, sm, etc.
   $size: nth($breakpoint, 2); // viewport width, pixel
-  @media only screen and (max-width: $size) {
+  @media only screen and (min-width: $size) {
     .col-#{$media} {
       @include grid-col-common;
       flex-basis: auto;
@@ -29,6 +46,7 @@
     }
   }
 }
+/*
 // Last breakpoint, extra large screen
 $media: xs; // more than 1200px
 @media only screen and (min-width: 1200px) {
@@ -45,3 +63,4 @@ $media: xs; // more than 1200px
     }
   }
 }
+*/
