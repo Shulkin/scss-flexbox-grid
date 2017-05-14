@@ -1,6 +1,6 @@
 // Use this mixin to add common properties to col class
 @mixin grid-col-common {
-  // Count padding and border as elements width
+  // Include padding and border to elements width
   box-sizing: border-box;
   // Columns always have the defined size
   flex-grow: 0;
