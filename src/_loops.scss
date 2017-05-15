@@ -10,36 +10,29 @@
   padding-right: $gutter / 2;
   padding-left: $gutter / 2;
 }
-// First breakpoint, xs (extra small screen); less than 768px
-$media: xs;
-.col-#{$media} {
-  @include grid-col-common;
-  flex-basis: auto;
-}
-@for $counter from 1 through $cols {
-  $width: 100% / $cols * $counter;
-  .col-#{$media}-#{$counter} {
+@mixin grid-cols($media) {
+  .col-#{$media} {
     @include grid-col-common;
-    flex-basis: $width;
-    max-width: $width;
+    flex-basis: auto;
+  }
+  @for $counter from 1 through $cols {
+    $width: 100% / $cols * $counter;
+    .col-#{$media}-#{$counter} {
+      @include grid-col-common;
+      flex-basis: $width;
+      max-width: $width;
+    }
   }
 }
 // Loop through all breakpoints and create col classes
 @each $breakpoint in $breakpoints {
   $media: nth($breakpoint, 1); // xs, sm, etc.
-  $size: nth($breakpoint, 2); // viewport width, pixel
-  @media only screen and (min-width: $size) {
-    .col-#{$media} {
-      @include grid-col-common;
-      flex-basis: auto;
-    }
-    @for $counter from 1 through $cols {
-      $width: 100% / $cols * $counter;
-      .col-#{$media}-#{$counter} {
-        @include grid-col-common;
-        flex-basis: $width;
-        max-width: $width;
-      }
+  @if $media == xs {
+    @include grid-cols($media);
+  } @else {
+    $size: nth($breakpoint, 2); // viewport width, pixel
+    @media only screen and (min-width: $size) {
+      @include grid-cols($media);
     }
   }
 }
