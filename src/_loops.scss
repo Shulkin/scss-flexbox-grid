@@ -35,6 +35,18 @@
       max-width: $width;
     }
   }
+  // col-xs-offset-*
+  @for $counter from 0 through $cols {
+    .col-#{$media}-offset-#{$counter} {
+      @include grid-col-common;
+      @if $counter == 0 {
+        // offset can be zero
+        margin-left: 0;
+      } @else {
+        margin-left: 100% / $cols * $counter;
+      }
+    }
+  }
   // Show all hidden columns that were meant for other breakpoints
   @include for-each-hidden-col {
     display: block;
