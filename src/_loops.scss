@@ -10,6 +10,15 @@
   padding-right: $gutter / 2;
   padding-left: $gutter / 2;
 }
+// Use this mixin to show columns for all breakpoints
+@mixin all-hidden-cols() {
+  @each $breakpoint in $breakpoints {
+    $media: nth($breakpoint, 1);
+    .col-#{$media}-hidden {
+      @content;
+    }
+  }
+}
 // This mixin generates bunch of columns
 @mixin grid-cols($media) {
   // .col-xs, for example
@@ -25,6 +34,14 @@
       flex-basis: $width;
       max-width: $width;
     }
+  }
+  // Show all hidden classes
+  @include all-hidden-cols {
+    display: block;
+  }
+  // Except for current, hide it!
+  .col-#{$media}-hidden {
+    display: none;
   }
 }
 // Get the very first breakpoint name
