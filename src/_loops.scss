@@ -1,4 +1,4 @@
-// Use this mixin to add common properties to col class
+// Use this mixin to add common properties to column class
 @mixin grid-col-common {
   // Include padding and border to elements width
   box-sizing: border-box;
@@ -10,11 +10,14 @@
   padding-right: $gutter / 2;
   padding-left: $gutter / 2;
 }
+// This mixin generates bunch of columns
 @mixin grid-cols($media) {
+  // .col-xs, for example
   .col-#{$media} {
     @include grid-col-common;
     flex-basis: auto;
   }
+  // col-xs-1, col-xs-2, etc.
   @for $counter from 1 through $cols {
     $width: 100% / $cols * $counter;
     .col-#{$media}-#{$counter} {
@@ -24,13 +27,29 @@
     }
   }
 }
-// Loop through all breakpoints and create col classes
+// Get the very first breakpoint name
+$first: nth(nth($breakpoints, 1), 1); // xs, most likely
+// Loop through all breakpoints
 @each $breakpoint in $breakpoints {
   $media: nth($breakpoint, 1); // xs, sm, etc.
-  @if $media == xs {
+  @if $media == $first {
+    /*
+      The first breakpoint is for extra small screens.
+      Thus, these rules should be applied to all screens,
+      until we meet the larger breakpoint. We don't need
+      media query in this case.
+    */
     @include grid-cols($media);
   } @else {
-    $size: nth($breakpoint, 2); // viewport width, pixel
+    /*
+      Any other rules should be applied starting from their breakpoint
+      minimum width, until larger breakpoint is met.
+    */
+    $size: nth($breakpoint, 2); // screen minimum width, px
+    /*
+      Use media query to determine on which screen size this
+      rules should be applied.
+    */
     @media only screen and (min-width: $size) {
       @include grid-cols($media);
     }
