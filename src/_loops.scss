@@ -10,8 +10,8 @@
   padding-right: $gutter / 2;
   padding-left: $gutter / 2;
 }
-// Use this mixin to show columns for all breakpoints
-@mixin all-hidden-cols() {
+// Look througn col-*-hidden in all breakpoints
+@mixin for-each-hidden-col {
   @each $breakpoint in $breakpoints {
     $media: nth($breakpoint, 1);
     .col-#{$media}-hidden {
@@ -35,11 +35,11 @@
       max-width: $width;
     }
   }
-  // Show all hidden classes
-  @include all-hidden-cols {
+  // Show all hidden columns that were meant for other breakpoints
+  @include for-each-hidden-col {
     display: block;
   }
-  // Except for current, hide it!
+  // Hide column in current breakpoint that has class col-*-hidden
   .col-#{$media}-hidden {
     display: none;
   }
