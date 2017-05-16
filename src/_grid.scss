@@ -54,4 +54,24 @@ ul {
     margin-right: $gutter;
     margin-left: $gutter;
   }
+  // Some helper classes to align content in columns
+  [class*="justify-"] {
+    display: flex;
+  }
+  // Horizontal alignment
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .justify-start {
+    justify-content: flex-start;
+  }
+  .justify-around {
+    justify-content: space-around;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
 }
