@@ -58,6 +58,9 @@ ul {
   [class*="justify-"] {
     display: flex;
   }
+  [class*="items-"] {
+    display: flex;
+  }
   // Horizontal alignment
   .justify-center {
     justify-content: center;
@@ -73,5 +76,21 @@ ul {
   }
   .justify-between {
     justify-content: space-between;
+  }
+  // Vertical alignment
+  .items-baseline {
+    align-items: baseline;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .items-stretch {
+    align-items: stretch;
   }
 }
