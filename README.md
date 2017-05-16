@@ -9,6 +9,8 @@ Based on [scotch.io](https://scotch.io) articles:
 
 Basically, a port from Less to SCSS.
 
+Also, thanks to this [SASS Flexbox Grid](https://github.com/hugeinc/flexboxgrid-sass).
+
 ## Installation
 
 Install via git clone
