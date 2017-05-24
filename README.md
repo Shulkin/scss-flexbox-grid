@@ -11,6 +11,10 @@ Basically, a port from Less to SCSS.
 
 Also, thanks to this [SASS Flexbox Grid](https://github.com/hugeinc/flexboxgrid-sass).
 
+## Try demo
+
+[scss-flexbox-grid](https://shulkin.github.io/scss-flexbox-grid)
+
 ## Installation
 
 Install via git clone
